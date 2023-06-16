@@ -60,7 +60,7 @@ class BlogPost(db.Model):
 def admin_only(function):
     @wraps(function)
     def wrapper(*args, **kwargs):
-        if not current_user.is_authenticated or current_user.id != 1:
+        if not current_user.is_authenticated or current_user.id != 9:
             abort(403, description="Authorization not allowed for this page")
         else:
             return function(*args, **kwargs)
